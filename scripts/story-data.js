@@ -23,7 +23,7 @@ var story2 = `
 <p>
 I never realized I have to share a desk with someone else.
 <br><br>
-I can't wait to hang with the big boys, I can't wait to be sketching with Prismacolors, I can't wait to learn photoshops, alias, to form studying groups.
+I can't wait to hang with the cool kids, I can't wait to be sketching with Prismacolors, I can't wait to learn photoshops, alias, to form studying groups.
 <br><br><br>
 I cant wait to be appreciated.
 </p>
