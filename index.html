@@ -51,11 +51,15 @@
 		var datalayer;
 
 		function updateStory(e) {
+			//h2.insertAdjacentHTML("afterend", html);
+			let html = document.getElementById("storyPlace").innerHTML;
 			let feature = e.features[0]
 			document.getElementById("storyPlace").innerHTML = feature.properties.story
 			document.getElementById("storyPlace").style.backgroundColor = feature.properties.bgColor;
+			//document.getElementById("storyPlace").innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!4v1663742403968!6m8!1m7!1s_9knsrJzrDdX_wHFqcJE4A!2m2!1d25.08297941448842!2d121.5452907335234!3f2.0743560141542217!4f8.432492363244506!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
 		}
 		function updateHead(e) {
+			
 			let feature = e.features[0]
 			map.getCanvas().style.cursor = 'pointer';
 			document.getElementById("headPlace").innerHTML = feature.properties.placeName
