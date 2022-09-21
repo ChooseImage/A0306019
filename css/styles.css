@@ -2,6 +2,7 @@
     font-family: 'Spectral', serif;
     font-style: italic;
     font-weight:200;
+    padding: 0;
 }
 
 ::-webkit-scrollbar {
@@ -12,7 +13,7 @@
 }
 
 body {
-
+    background-color: #fcfbf5;
 }
 
 .info {
@@ -53,16 +54,27 @@ body {
     top: 10px;
     z-index: 10;
 }
+
 #headPlace {
     position: absolute;
-    right: 0px;
-    top: 0px;
+    display: flex;
+    right: 18px;
+    top: 18px;
     z-index: 10;
-
-padding: 10px;
-width: 200px;
-    background-color: #DDDDDD;
+    box-shadow: 1.5px 4px 9px #9a8d6385;
+    width: 200px;
+    height:40px;
+    background-color: #f1e9c8;
+    justify-content: center;
+    align-items: center;
 }
+
+#headPlace p{
+    font-style: italic;
+    font-weight:50;
+    font-size: 16px;
+}
+
 #map,
 #storyPlace {
     flex: 1;
@@ -72,12 +84,17 @@ width: 200px;
 }
 
 #storyPlace p {
-    padding: 30% 10% 0 10%;
+    padding: 35% 10% 0 10%;
 }
 
 #storyPlace {
     text-align: center;
     font-family: 'Spectral', serif;
+    font-size: 20px;
+    background-color: #fcfbf5;
+    flex: 1;
+    height: calc(100vh - 30px);
+    overflow: scroll;
 }
 
 

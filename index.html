@@ -38,11 +38,13 @@
 //mapbox://styles/chooseimage/cl8b5ypfa000214qjbmuvf83r
 		var map = new mapboxgl.Map({
 			container: 'map', // HTML container ID
-			style: 'mapbox://styles/chooseimage/cl8b67cxz001k15qpoyy7ezsn', // style URL
+			style: 'mapbox://styles/chooseimage0125/cl8bkav5k000314p9uadz2cm7', // style URL
 			center: [-21.9270884, 64.1436456], // starting position as [lng, lat]
-			zoom: 200
+			zoom: 4,
+			pitch: 55,
+			bearing: 17.6,
 		});
-		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+		//map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
 // all of this JavaScript manages what's displayed on hover and click
 		var popup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false });
