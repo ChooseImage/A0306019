@@ -86,7 +86,7 @@ map.on('load', function () {
         paint: {
             'circle-radius': ['to-number', ['get', 'radius']],
             'circle-stroke-color': 'white',
-            'circle-stroke-width': 2,
+            'circle-stroke-width': 0,
             'circle-color': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],

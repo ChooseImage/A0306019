@@ -53,6 +53,7 @@
 		function updateStory(e) {
 			let feature = e.features[0]
 			document.getElementById("storyPlace").innerHTML = feature.properties.story
+			document.getElementById("storyPlace").style.backgroundColor = feature.properties.bgColor;
 		}
 		function updateHead(e) {
 			let feature = e.features[0]
