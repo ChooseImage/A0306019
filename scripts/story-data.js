@@ -3,7 +3,7 @@
 
 
 var story0 = `<p>
-I never thought it would be this rough, I love this new space, I love the factory-like smell, I love that it's underground, I love how empty it is, how its open 24/7, how theres 2 shopping carts, how loud we can be.
+I never thought it would be this rough, I love this new space, I love the factory-like smell, I love that it's underground, I love how empty it is, how it's open 24/7, how theres 2 shopping carts, how loud we can be.
 <br><br>
 I love how perfect its distance is away from the bathroom,
 <br><br><br>
