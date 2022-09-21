@@ -7,16 +7,42 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/css/styles.css">
+	<!-- 
+THESE ARE CALLS TO DIFFERENT EXTERNAL FILES
+MAPBOX HAS A JAVASCRIPT LIBRARY THAT YOU NEED
+THE NEXT IS A CSS FILE FOR THE MAP
+AND THE FINAL ONE IS THE LIBRARY FOR JQUERY, WHICH I USE FOR THE PULLDOWN MENU.
+ -->
+ 	<!-- <script src="scripts/scripts.js" type="text/javascript"></script> -->
 	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  	<!-- 
+THIS IS WHERE THE BROWSER LOADS IN YOUR STORY DATA INFORMATION
+IT WILL HOLD VARIABLES SO YOU CAN PUT IT IN THE LONGER MORE COMPLEX HTML 
+THAT WILL APPEAR IN THE storyPlace DIV WHEN A POINT IS CLICKED-->
 	<script type="text/javascript" src="scripts/story-data.js"></script>
+<!-- 
+THIS IS WHERE THE BROWSER LOADS IN YOUR GEOJSON INFORMATION
+MAKING IT A JAVASCRIPT FILE .js, RATHER THAN A GEOJSON FILE
+ALLOWS YOU TO LOAD IT LOCALLY WITHOUT DEALING WITH SETTING UP SERVERS ON YOUR MACHINE.
+-->
 	<script type="text/javascript" src="scripts/geo-data.js"></script>
 
 </head>
 
 <body>
+
+
+
+	<!-- 
+THE DIVS BELOW ARE SUPER IMPORTANT:
+THEY ARE WHERE THE MAP WILL GO, AND YOUR STORY TEXT WILL GO
+YOU WILL CERTAINLY WANT TO STYLE THESE, BOTH THEIR PLACEMENT AND CONTENT 
+THE MAP SHOULD BE EMPTY.
+WHATEVER INTRODUCTORY TEXT YOU WANT CAN GO INTO THE STORYPLACE DIV
+ -->
 
 	<div id='map'>
 		<div id="dropdown">
@@ -28,14 +54,43 @@
 	</div>
 	
 	<div id='storyPlace'> all of your text can go here.</div>
+	
+	<!-- 
+INSIDE THE MAP DIV  ARE TWO THINGS, THE HEADLINE AND THE DROP-DOWN MENU
 
-<script type="text/javascript">
 
-		mapboxgl.accessToken = 'pk.eyJ1IjoiY2hvb3NlaW1hZ2UiLCJhIjoiY2wwYndxcnoyMG52ODNlbWk2MmE0Y24yMyJ9.QXtYiiaATzYKLnjLzogMag';
-//mapbox://styles/chooseimage/cl8b5ypfa000214qjbmuvf83r
+DROP-DOWN MENU: THE ID select–menu IS USED BY THE JQUERY FUNCTION WAY DOWN AT THE BOTTOM
+THIS HTML SETS UP THE PULLDOWN MENU
+IF YOU HAVE MULTIPLE GROUPS THE JQUERY AT THE BOTTOM 
+WILL UPDATE THE SELECT MENU FOR YOU
+
+HEADLINE: NOTE, YOU CAN USE THE STABLE DIV TO SHOW THE HEADLINE
+OR POP-UPS. IN THIS TEMPLATE THE POP-UPS ARE COMMENTED OUT
+YOU CAN UN-COMMENT THEM TO MAKE THEM ACTIVE.
+ -->
+ 
+
+
+	<!-- 
+HERE BEGINS ALL THE SCRIPT THAT SETS UP THE MAP 
+ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
+ -->
+
+	<script type="text/javascript">
+// these seven lines maybe the only lines you need to edit
+// you should put in your own access token
+// you can change the style of the tiles
+// as well as the center and the zoom
+
+// but note that way down below this is a method that auto centers and zooms:
+// map.fitBounds(turf.bbox(infoData), { padding: 120, linear: true })
+//If you want to control the centering and zoom yourself, comment out that line.
+
+		mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
 		var map = new mapboxgl.Map({
 			container: 'map', // HTML container ID
-			style: 'mapbox://styles/chooseimage/cl8b67cxz001k15qpoyy7ezsn', // style URL
+			style: 'mapbox://styles/mapbox/light-v10', // style URL
 			center: [-21.9270884, 64.1436456], // starting position as [lng, lat]
 			zoom: 13
 		});
@@ -105,7 +160,6 @@
 			for (let i = 0; i < infoData.features.length; i++) {
 				infoData.features[i]['id'] = i + 1
 			}
-			
 // the JavaScript below sets up the styles of the colors based on your properties
 // color, radius
 

@@ -2,7 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqc
 
 var map = new mapboxgl.Map({
     container: 'map', // HTML container ID
-    style: 'mapbox://styles/mapbox/light-v10', // style URL
+    style: 'mapbox://styles/mapbox/satellite-streets-v11', // style URL
     center: [-21.9270884, 64.1436456], // starting position as [lng, lat]
     zoom: 13
 });
@@ -129,3 +129,31 @@ map.on('load', function () {
     map.fitBounds(turf.bbox(infoData), { padding: 120, linear: true })
 })
 
+
+
+	// this part is J query / with some mapbox JavaScript
+	// it changes what is displayed based on the pulldown menu
+var groupsObj = {};
+
+    $(document).ready(function () {
+        infoData.features.forEach(function (feature) {
+            groupsObj[feature.properties.group_id] = feature.properties.group_name;
+        })
+
+        $.each(groupsObj, function (key, value) {
+            $('#select-menu')
+                .append($("<option></option>")
+                    .attr("value", value)
+                    .text(value));
+        });
+
+        $('#select-menu').change(function () {
+            var selectedGroup = $('#select-menu').val();
+
+            if (!selectedGroup) {
+                map.setFilter('datalayer', null);
+            } else {
+                map.setFilter('datalayer', ['==', ['get', 'group_name'], selectedGroup]);
+            }
+        });
+    });
