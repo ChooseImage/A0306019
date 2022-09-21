@@ -31,7 +31,7 @@ I cant wait to be appreciated.
 
 var story3 = `
 <p>
-4 to 6am is always the coldest.
+4 to 6 am is always the coldest.
 <br><br>
 Covered in dust and paint. This home stretch period is always a pain in the ass. Still it seems inspiring, for being the only people to still be working now, to see how empty the street is, to feel like I really earned this plate of freshly fried noodles.
 <br><br><br>
