@@ -1,5 +1,7 @@
 * {
-    font: 14px/16px Arial, Helvetica, sans-serif;
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-weight:200;
 }
 
 ::-webkit-scrollbar {
@@ -70,6 +72,13 @@ width: 200px;
     margin: 15px;
 }
 
-#map{
-    border-radius: 250px;
+#storyPlace p {
+    padding: 40% 10% 0 10%;
 }
+
+#storyPlace {
+    text-align: center;
+    font-family: 'Spectral', serif;
+}
+
+
