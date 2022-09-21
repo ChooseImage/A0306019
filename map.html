@@ -6,96 +6,31 @@
 	<title>Your Map</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<link rel="stylesheet" href="/css/styles.css">
 	<!-- 
 THESE ARE CALLS TO DIFFERENT EXTERNAL FILES
 MAPBOX HAS A JAVASCRIPT LIBRARY THAT YOU NEED
 THE NEXT IS A CSS FILE FOR THE MAP
 AND THE FINAL ONE IS THE LIBRARY FOR JQUERY, WHICH I USE FOR THE PULLDOWN MENU.
  -->
-
+ 	<!-- <script src="scripts/scripts.js" type="text/javascript"></script> -->
 	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<!-- 
-THESE ARE CSS STYLES WHAT YOU SHOULD FREELY PLAY WITH
-THE STYLES THAT BEGIN WITH # RELATE TO IDS, 
-THE ONES THAT BEGIN WITH . RELATE TO CLASSES
-WHEN YOU GOT EVERYTHING WORKING YOU CAN PLAY WITH THESE AND ADD TO THESE 
-TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
- -->
-
-	<style>
-		::-webkit-scrollbar {
-			width: 0px;
-			/* remove scrollbar space */
-			background: transparent;
-			/* optional: just make scrollbar invisible */
-		}
-
-		.info {
-			padding: 6px 8px;
-			font: 14px/16px Arial, Helvetica, sans-serif;
-			background: white;
-			background: rgba(255, 255, 255, 0.8);
-			box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-			border-radius: 5px;
-		}
-
-		.info h4 {
-			margin: 0 0 5px;
-			color: #777;
-		}
-
-		.legend {
-			text-align: left;
-			line-height: 18px;
-			color: #555;
-		}
-
-		.legend i {
-			width: 18px;
-			height: 18px;
-			float: left;
-			margin-right: 8px;
-			opacity: 0.7;
-		}
-
-		body {
-			display: flex;
-		}
-
-		#select-menu {
-			position: absolute;
-			left: 50px;
-			top: 10px;
-			z-index: 10;
-		}
-#headPlace {
-			position: absolute;
-			right: 0px;
-			top: 0px;
-			z-index: 10;
-
-		padding: 10px;
-		width: 200px;
-			background-color: #DDDDDD;
-
-		}
-		#map,
-		#storyPlace {
-			flex: 1;
-			height: calc(100vh - 30px);
-			overflow: scroll;
-			margin: 15px;
-		}
-		
-
-	</style>
+  	<!-- 
+THIS IS WHERE THE BROWSER LOADS IN YOUR STORY DATA INFORMATION
+IT WILL HOLD VARIABLES SO YOU CAN PUT IT IN THE LONGER MORE COMPLEX HTML 
+THAT WILL APPEAR IN THE storyPlace DIV WHEN A POINT IS CLICKED-->
+	<script type="text/javascript" src="scripts/story-data.js"></script>
+<!-- 
+THIS IS WHERE THE BROWSER LOADS IN YOUR GEOJSON INFORMATION
+MAKING IT A JAVASCRIPT FILE .js, RATHER THAN A GEOJSON FILE
+ALLOWS YOU TO LOAD IT LOCALLY WITHOUT DEALING WITH SETTING UP SERVERS ON YOUR MACHINE.
+-->
+	<script type="text/javascript" src="scripts/geo-data.js"></script>
 
 </head>
-<!-- THE BODY OF THE HTML BEGINS HERE -->
 
 <body>
 
@@ -134,21 +69,7 @@ OR POP-UPS. IN THIS TEMPLATE THE POP-UPS ARE COMMENTED OUT
 YOU CAN UN-COMMENT THEM TO MAKE THEM ACTIVE.
  -->
  
- 	<!-- 
-THIS IS WHERE THE BROWSER LOADS IN YOUR STORY DATA INFORMATION
-IT WILL HOLD VARIABLES SO YOU CAN PUT IT IN THE LONGER MORE COMPLEX HTML 
-THAT WILL APPEAR IN THE storyPlace DIV WHEN A POINT IS CLICKED-->
 
-	<script type="text/javascript" src="story-data.js"></script>
-
-
-	<!-- 
-THIS IS WHERE THE BROWSER LOADS IN YOUR GEOJSON INFORMATION
-MAKING IT A JAVASCRIPT FILE .js, RATHER THAN A GEOJSON FILE
-ALLOWS YOU TO LOAD IT LOCALLY WITHOUT DEALING WITH SETTING UP SERVERS ON YOUR MACHINE.
- -->
-
-	<script type="text/javascript" src="geo-data.js"></script>
 
 	<!-- 
 HERE BEGINS ALL THE SCRIPT THAT SETS UP THE MAP 
